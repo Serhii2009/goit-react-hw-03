@@ -26,8 +26,9 @@ export const App = () => {
     });
   };
 
-  const visibleUsers = users.filter((user) =>
-    user.name.toLowerCase().includes(nameFilter.toLowerCase())
+  const visibleUsers = users.filter(
+    (user) =>
+      user.name && user.name.toLowerCase().includes(nameFilter.toLowerCase())
   );
 
   return (

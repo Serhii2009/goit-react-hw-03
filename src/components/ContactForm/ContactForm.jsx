@@ -26,7 +26,7 @@ export const ContactForm = ({ onAdd }) => {
         actions.resetForm();
       }}
     >
-      <Form autoComplete="off">
+      <Form>
         <div>
           <label htmlFor={nameFieldId}>Username:</label>
           <Field type="text" name="username" id={nameFieldId} />
