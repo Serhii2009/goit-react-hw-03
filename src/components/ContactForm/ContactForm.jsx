@@ -6,9 +6,7 @@ const userSchema = Yup.object().shape({
   username: Yup.string()
     .min(3, "Name must be at least 3 symb long")
     .required("This is a required field"),
-  access: Yup.string()
-    .oneOf(["w", "r", "m"], "Acces must be w r or m")
-    .required("This is a required field"),
+  email: Yup.string().required("This is a required field"),
 });
 
 export const ContactForm = ({ onAdd }) => {
@@ -19,7 +17,7 @@ export const ContactForm = ({ onAdd }) => {
     <Formik
       initialValues={{
         username: "",
-        access: "r",
+        email: "",
       }}
       validationSchema={userSchema}
       onSubmit={(values, actions) => {
@@ -36,13 +34,9 @@ export const ContactForm = ({ onAdd }) => {
         </div>
 
         <div>
-          <label htmlFor={accessFieldId}>Access:</label>
-          <Field as="select" name="access" id={accessFieldId}>
-            <option value="r">Read</option>
-            <option value="w">Write</option>
-            <option value="m">Maintain</option>
-          </Field>
-          <ErrorMessage name="access" component="span" />
+          <label htmlFor={nameFieldId}>Email:</label>
+          <Field type="email" name="email" id={accessFieldId} />
+          <ErrorMessage name="email" component="span" />
         </div>
 
         <button type="submit">Add user</button>
