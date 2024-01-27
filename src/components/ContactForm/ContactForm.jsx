@@ -11,7 +11,7 @@ const userSchema = Yup.object().shape({
 
 export const ContactForm = ({ onAdd }) => {
   const nameFieldId = useId();
-  const accessFieldId = useId();
+  const numberFieldId = useId();
 
   return (
     <Formik
@@ -34,8 +34,8 @@ export const ContactForm = ({ onAdd }) => {
         </div>
 
         <div>
-          <label htmlFor={accessFieldId}>Number:</label>
-          <Field type="number" name="number" id={accessFieldId} />
+          <label htmlFor={numberFieldId}>Number:</label>
+          <Field type="number" name="number" id={numberFieldId} />
           <ErrorMessage name="number" component="span" />
         </div>
 
