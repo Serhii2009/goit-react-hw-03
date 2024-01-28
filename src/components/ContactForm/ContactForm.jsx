@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const userSchema = Yup.object().shape({
-  username: Yup.string()
+  name: Yup.string()
     .min(3, "Name must be at least 3 symb long")
     .required("This is a required field"),
   number: Yup.string().required("This is a required field"),
@@ -16,7 +16,7 @@ export const ContactForm = ({ onAdd }) => {
   return (
     <Formik
       initialValues={{
-        username: "",
+        name: "",
         number: "",
       }}
       validationSchema={userSchema}
@@ -29,13 +29,13 @@ export const ContactForm = ({ onAdd }) => {
       <Form>
         <div>
           <label htmlFor={nameFieldId}>Username:</label>
-          <Field type="text" name="username" id={nameFieldId} />
-          <ErrorMessage name="username" component="span" />
+          <Field type="text" name="name" id={nameFieldId} />
+          <ErrorMessage name="name" component="span" />
         </div>
 
         <div>
           <label htmlFor={numberFieldId}>Number:</label>
-          <Field type="number" name="number" id={numberFieldId} />
+          <Field type="text" name="number" id={numberFieldId} />
           <ErrorMessage name="number" component="span" />
         </div>
 
