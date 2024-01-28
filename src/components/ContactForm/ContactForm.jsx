@@ -30,7 +30,7 @@ export const ContactForm = ({ onAdd }) => {
     >
       <Form autoComplete="off">
         <div>
-          <label htmlFor={nameFieldId}>Username:</label>
+          <label htmlFor={nameFieldId}>Name:</label>
           <Field type="text" name="name" id={nameFieldId} />
           <ErrorMessage name="name" component="span" />
         </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SearchBox } from "./SearchBox/SearchBox";
 import { ContactList } from "./ContactList/ContactList";
 import { ContactForm } from "./ContactForm/ContactForm";
@@ -10,9 +10,22 @@ const initialUsers = [
   { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
 ];
 
+const saveToLocalStorage = (users) => {
+  localStorage.setItem("users", JSON.stringify(users));
+};
+
+const getFromLocalStorage = () => {
+  const users = localStorage.getItem("users");
+  return users ? JSON.parse(users) : initialUsers;
+};
+
 export const App = () => {
-  const [users, setUsers] = useState(initialUsers);
+  const [users, setUsers] = useState(getFromLocalStorage);
   const [nameFilter, setNameFilter] = useState("");
+
+  useEffect(() => {
+    saveToLocalStorage(users);
+  }, [users]);
 
   const addUser = (newUser) => {
     setUsers((prevUsers) => {
