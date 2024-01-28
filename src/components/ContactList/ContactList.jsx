@@ -1,11 +1,15 @@
+import css from "./ContactList.module.css";
+
 export const ContactList = ({ items, onDelete }) => {
   return (
-    <ul>
+    <ul className={css.contactic}>
       {items.map((item) => (
-        <li key={item.id}>
-          <p>{item.name}</p>
-          <p>{item.number}</p>
-          <button onClick={() => onDelete(item.id)}>Delete</button>
+        <li className={css.contacticList} key={item.id}>
+          <p className={css.dataInfo}>{item.name}</p>
+          <p className={css.dataInfo}>{item.number}</p>
+          <button className={css.dataButton} onClick={() => onDelete(item.id)}>
+            Delete
+          </button>
         </li>
       ))}
     </ul>
